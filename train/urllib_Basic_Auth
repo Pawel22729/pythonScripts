@@ -1,0 +1,18 @@
+#!/usr/bin/python
+
+import urllib2
+
+url = 'http://plasak.no-ip.org'
+user = 'zdjecia'
+passw = 'qazxdr'
+
+auth = urllib2.HTTPBasicAuthHandler()
+auth.add_password('Test Realm', url, user, passw)
+opener = urllib2.build_opener(auth)
+urllib2.install_opener(opener)
+
+page = urllib2.urlopen(url)
+
+f = page.readlines()
+
+print f
